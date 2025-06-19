@@ -4,10 +4,14 @@ import json
 
 def fetch_text_from_url(url):
     headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
-                      "AppleWebKit/537.36 (KHTML, like Gecko) "
-                      "Chrome/114.0.0.0 Safari/537.36"
-    }
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
+                  "AppleWebKit/537.36 (KHTML, like Gecko) "
+                  "Chrome/114.0.0.0 Safari/537.36",
+    "Accept-Language": "en-US,en;q=0.9",
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+    "Referer": url,
+    "Connection": "keep-alive",
+}
     try:
         response = requests.get(url, headers=headers)
         response.raise_for_status()
@@ -41,6 +45,7 @@ def clip_prod(url):
         )
 
         # Extract and print just the JSON content inside the code block
+
         try:
             assistant_content = response.json()['choices'][0]['message']['content']
             if assistant_content.startswith("```json"):
