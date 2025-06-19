@@ -1,0 +1,1 @@
+from clipperAI.wsgi import application
