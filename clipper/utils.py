@@ -30,11 +30,11 @@ def clip_prod(url):
         response = requests.post(
             url="https://openrouter.ai/api/v1/chat/completions",
             headers={
-                "Authorization": "Bearer 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",
+                "Authorization": "Bearer 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",
                 "Content-Type": "application/json",
             },
             data=json.dumps({
-                "model": "deepseek/deepseek-r1:free",
+                "model": "openai/chatgpt-4o-latest",
                 "messages": [
                     {
                         "role": "user",
